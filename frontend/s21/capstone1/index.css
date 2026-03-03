@@ -58,3 +58,17 @@ footer a:hover {
     color: #0d6efd !important; /* Changes to Bootstrap blue on hover */
     transition: 0.3s;
 }
+
+/* Make tool boxes look uniform */
+#tools .border {
+    transition: transform 0.2s;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#tools .border:hover {
+    transform: scale(1.05);
+    border-color: #0d6efd !important;
+}
