@@ -1,0 +1,21 @@
+/* Custom Font Requirement */
+body {
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden; /* Prevents horizontal scroll requirement */
+}
+
+/* Use Margin instead of <br> tags */
+section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.card {
+    transition: transform 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
