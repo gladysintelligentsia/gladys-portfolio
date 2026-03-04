@@ -1,0 +1,19 @@
+{
+    "capstone":{
+        "liveLink" : "<https://github.com/gladysintelligentsia/webportfolio.git>",
+        "name" : "<Gladys>",
+        "projectTitle": "Full Stack Web Developer Portfolio",
+        "isMulti" : false,
+        "techStack": [
+		"HTML5",
+		"CSS3",
+		"Bootstrap 5",
+		"JavaScript",
+		"Node.js",
+		"Express.js",
+		"MongoDB",
+		"Postman",
+		"Git"
+	]
+}
+    }	
