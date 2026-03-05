@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gladys Ramos | Full Stack Web Developer</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
@@ -16,205 +13,71 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#landing">GR</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#landing">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="#tools">Tools</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contacts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <header id="landing" class="vh-100 d-flex flex-column justify-content-center align-items-center text-center">
-        <h1>Gladys Ramos</h1>
-        <p class="lead">Full Stack Web Developer</p>
+    <header id="landing">
+        <h1 id="trainee-name">Gladys Ramos</h1> 
+        <p>Full Stack Web Developer</p>
     </header>
 
-    <section id="projects" class="py-5 bg-light">
+    <section id="projects">
         <div class="container">
-            <h2 class="text-center mb-5">My Projects</h2>
-            <div class="row g-4">
+            <h2 class="section-title">My Projects</h2>
+            <div class="row">
                 <div class="col-md-4">
-                    <div class="card h-100">
-                        <img src="./images/ecommerce-api.png" class="card-img-top" alt="E-commerce API">
+                    <div class="card">
+                        <img src="./images/ecommerce-api.png" alt="E-commerce API">
                         <div class="card-body">
-                            <h5 class="card-title">E-commerce API Documentation</h5>
-                            <p class="card-text">Dynamic E-Commerce Workflow Management. Features dynamic routes for order processing, real-time inventory, and secure authentication. Documented with Postman.</p>
+                            <h5 class="card-title">E-commerce API</h5>
+                            <p class="card-text">Dynamic E-Commerce Workflow Management.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <img src="./images/course-api.png" class="card-img-top" alt="Course Booking API">
-                        <div class="card-body">
-                            <h5 class="card-title">Course Booking API Documentation</h5>
-                            <p class="card-text">RESTful API Features. Engineered to handle user registration, secure authentication, and course management. It allows users to browse and book courses while providing admins with robust course oversight.</p>
-                        </div>
-                    </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <img src="./images/course-app.png" class="card-img-top" alt="Course Booking App">
-                        <div class="card-body">
-                            <h5 class="card-title">Course Booking App</h5>
-                            <p class="card-text">MERN-stack system featuring intuitive enrollment and administration. Users can seamlessly browse and enroll in courses while administrators manage offerings through a secure dashboard.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <img src="./images/ecommerce-app.png" class="card-img-top" alt="E-commerce App">
-                        <div class="card-body">
-                            <h5 class="card-title">E-commerce App</h5>
-                            <p class="card-text">Comprehensive MERN platform. Features a dynamic product catalog, secure checkout, and a full-featured admin dashboard for managing inventory and orders.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <img src="./images/airline-mockup.png" class="card-img-top" alt="Airline Mockup">
-                        <div class="card-body">
-                            <h5 class="card-title">Airline Booking System Mockup</h5>
-                            <p class="card-text">A professional mockup created with UI/UX best practices. Focuses on conceptual design, user flow, and intuitive navigation for flight searches and seat selection.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <img src="./images/airline-prototype.png" class="card-img-top" alt="Airline Prototype">
-                        <div class="card-body">
-                            <h5 class="card-title">Airline Booking System Prototype</h5>
-                            <p class="card-text">An interactive prototype simulating end-to-end airline functionalities. It demonstrates the technical feasibility of the user journey from searching for flights to final confirmation.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <img src="./images/short-courses-1.png" class="card-img-top" alt="Short Courses">
-                        <div class="card-body">
-                            <h5 class="card-title">Short Courses Capstone</h5>
-                            <p class="card-text">My latest project development focused on modular learning. This capstone integrates front-end and back-end skills to create a cohesive learning management experience.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <img src="./images/short-courses-2.png" class="card-img-top" alt="Short Courses">
-                        <div class="card-body">
-                            <h5 class="card-title">Short Courses Capstone</h5>
-                            <p class="card-text">Additional project work focusing on advanced CSS layouts and responsive design principles developed during the bootcamp.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <img src="./images/short-courses-3.png" class="card-img-top" alt="Short Courses">
-                        <div class="card-body">
-                            <h5 class="card-title">Short Courses Capstone</h5>
-                            <p class="card-text">Collection of technical exercises demonstrating proficiency in the Bootstrap 5 grid system and component library.</p>
-                        </div>
-                    </div>
-                </div>
-            </div> </div> </section>
-
-    <section id="tools" class="py-5 bg-light">
-    <div class="container text-center">
-        <h2 class="mb-5">Tools & Technologies</h2>
-        <div class="row justify-content-center g-4">
-            <div class="col-6 col-md-3 col-lg-2">
-                <div class="p-3 border rounded bg-white shadow-sm h-100 d-flex align-items-center justify-content-center">
-                    <p class="mb-0 fw-bold">HTML5</p>
-                </div>
-            </div>
-            <div class="col-6 col-md-3 col-lg-2">
-                <div class="p-3 border rounded bg-white shadow-sm h-100 d-flex align-items-center justify-content-center">
-                    <p class="mb-0 fw-bold">CSS3</p>
-                </div>
-            </div>
-            <div class="col-6 col-md-3 col-lg-2">
-                <div class="p-3 border rounded bg-white shadow-sm h-100 d-flex align-items-center justify-content-center">
-                    <p class="mb-0 fw-bold">Bootstrap 5</p>
-                </div>
-            </div>
-            <div class="col-6 col-md-3 col-lg-2">
-                <div class="p-3 border rounded bg-white shadow-sm h-100 d-flex align-items-center justify-content-center">
-                    <p class="mb-0 fw-bold">JavaScript</p>
-                </div>
-            </div>
-            <div class="col-6 col-md-3 col-lg-2">
-                <div class="p-3 border rounded bg-white shadow-sm h-100 d-flex align-items-center justify-content-center">
-                    <p class="mb-0 fw-bold">Node.js</p>
-                </div>
-            </div>
-            <div class="col-6 col-md-3 col-lg-2">
-                <div class="p-3 border rounded bg-white shadow-sm h-100 d-flex align-items-center justify-content-center">
-                    <p class="mb-0 fw-bold">Express.js</p>
-                </div>
-            </div>
-            <div class="col-6 col-md-3 col-lg-2">
-                <div class="p-3 border rounded bg-white shadow-sm h-100 d-flex align-items-center justify-content-center">
-                    <p class="mb-0 fw-bold">MongoDB</p>
-                </div>
-            </div>
-            <div class="col-6 col-md-3 col-lg-2">
-                <div class="p-3 border rounded bg-white shadow-sm h-100 d-flex align-items-center justify-content-center">
-                    <p class="mb-0 fw-bold">Postman</p>
-                </div>
-            </div>
-            <div class="col-6 col-md-3 col-lg-2">
-                <div class="p-3 border rounded bg-white shadow-sm h-100 d-flex align-items-center justify-content-center">
-                    <p class="mb-0 fw-bold">Git Bash</p>
-                </div>
-            </div>
-            <div class="col-6 col-md-3 col-lg-2">
-                <div class="p-3 border rounded bg-white shadow-sm h-100 d-flex align-items-center justify-content-center">
-                    <p class="mb-0 fw-bold">REST API</p>
-                </div>
-            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-    <section id="contact" class="py-5 bg-dark text-white">
+    <section id="tools">
         <div class="container">
-            <h2 class="text-center mb-4">Contact Me</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-8 col-lg-6">
-                    <form id="contact-form">
-                        <div class="mb-3">
-                            <label for="userName" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="userName" placeholder="Enter your name" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="userEmail" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="userEmail" placeholder="email@example.com" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="userMessage" class="form-label">Message</label>
-                            <textarea class="form-control" id="userMessage" rows="5" placeholder="Write your message here..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
-                    </form>
-                </div>
+            <h2 class="section-title">Tools & Technologies</h2>
+            <div class="row">
+                <div class="col-md-3"><div class="tool-box">Node.js</div></div>
+                <div class="col-md-3"><div class="tool-box">MongoDB</div></div>
+                <div class="col-md-3"><div class="tool-box">Express.js</div></div>
+                <div class="col-md-3"><div class="tool-box">React</div></div>
             </div>
         </div>
     </section>
 
-    <footer class="py-4 bg-dark text-white border-top border-secondary">
-        <div class="container text-center">
-            <p class="mb-1">&copy; 2026 Gladys Ramos | Full Stack Web Developer</p>
-            <p class="small text-secondary">Built with Bootstrap 5 and Passion.</p>
-            <div class="mt-3">
-                <a href="#" class="text-white me-3 text-decoration-none small">LinkedIn</a>
-                <a href="#" class="text-white me-3 text-decoration-none small">GitHub</a>
-            </div>
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="userName">Name</label>
+                    <input type="text" id="userName" required>
+                </div>
+                <div class="form-group">
+                    <label for="userEmail">Email</label>
+                    <input type="email" id="userEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="userMessage">Message</label>
+                    <textarea id="userMessage" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
         </div>
-    </footer>
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./index.js"></script>

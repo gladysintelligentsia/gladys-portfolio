@@ -1,74 +1,69 @@
-/* Custom Font Requirement */
 body {
     font-family: 'Montserrat', sans-serif;
-    overflow-x: hidden; /* Prevents horizontal scroll requirement */
+    margin: 0;
+    padding: 0;
 }
 
-/* Use Margin instead of <br> tags */
-section {
-    padding-top: 80px;
-    padding-bottom: 80px;
+section, header {
+    padding: 100px 0;
+    text-align: center;
+}
+
+header#landing {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #ffffff;
+}
+
+#projects { background-color: #f8f9fa; }
+
+#contact {
+    background-color: #212529;
+    color: #ffffff;
+}
+
+.section-title {
+    margin-bottom: 50px;
+    font-weight: 700;
 }
 
 .card {
-    transition: transform 0.3s ease;
+    border: 1px solid #dee2e6;
+    margin-bottom: 30px;
+    background: #fff;
+}
+
+.tool-box {
+    border: 1px solid #dee2e6;
+    padding: 20px;
+    background: #fff;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.submit-btn {
+    padding: 10px 40px;
+    background-color: #0d6efd;
+    color: white;
     border: none;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-/* Contact Section Styling */
-#contact {
-    /* Ensures background covers the section properly */
-    background-color: #212529; 
-}
-
-#contact h2 {
-    font-weight: 700;
-    color: #0d6efd; /* Bootstrap Primary Blue */
-}
-
-/* Customizing Form Inputs */
-.form-control {
-    background-color: #2b3035;
-    border: 1px solid #495057;
-    color: #fff;
-}
-
-.form-control:focus {
-    background-color: #343a40;
-    color: #fff;
-    border-color: #0d6efd;
-    box-shadow: none; /* Keeps it clean */
-}
-
-/* Custom Placeholder Color */
-.form-control::placeholder {
-    color: #adb5bd;
-}
-
-footer {
-    background-color: #1a1d20 !important; /* Slightly darker than the contact section */
-}
-
-footer a:hover {
-    color: #0d6efd !important; /* Changes to Bootstrap blue on hover */
-    transition: 0.3s;
-}
-
-/* Make tool boxes look uniform */
-#tools .border {
-    transition: transform 0.2s;
-    min-height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#tools .border:hover {
-    transform: scale(1.05);
-    border-color: #0d6efd !important;
+    border-radius: 4px;
+    cursor: pointer;
 }
