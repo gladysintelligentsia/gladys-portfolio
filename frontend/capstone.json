@@ -1,7 +1,7 @@
 {
-    "capstone":{
-        "liveLink" : "https://github.com/gladysintelligentsia/webportfolio.git",
-        "name" : "Gladys",
-        "isMulti" : false
+    "capstone": {
+        "liveLink": "https://gladysintelligentsia.github.io/webportfolio/",
+        "name": "Gladys Ramos",
+        "isMulti": false
     }
 }
