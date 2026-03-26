@@ -1,10 +1,10 @@
 [
   {
-    "_id": "65f1a2b3c4d5e6f7a8b9c999",
-    "orderId": "65f1a2b3c4d5e6f7a8b9c005", 
+    "_id": "65f2a1b3c4d5e6f7a8b9c010",
+    "orderId": "65f1a2b3c4d5e6f7a8b9c005",
     "productId": "65f1a2b3c4d5e6f7a8b9c003",
     "quantity": 2,
-    "price": 500,
-    "subtotal": 1000
+    "price": 1500,
+    "subtotal": 3000
   }
 ]
