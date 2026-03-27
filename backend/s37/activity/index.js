@@ -67,12 +67,12 @@ function updateOneFunc(db) {
 
 async function replaceOneFunc(db) {
     await (
-        // The test expects the "queen" room to be replaced by a "family" room
+        // Replaces the "queen" room with a "family" room
         db.collection("rooms").replaceOne(
             { name: "queen" },
             {
                 name: "family",
-                accommodates: 4,
+                accommodates: 5, // Updated to 5 to satisfy the 'family' room requirement
                 price: 4000,
                 description: "A room with a queen sized bed perfect for a simple getaway",
                 rooms_available: 0,
