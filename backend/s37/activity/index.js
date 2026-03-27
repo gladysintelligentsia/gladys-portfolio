@@ -72,7 +72,7 @@ async function replaceOneFunc(db) {
             { name: "queen" },
             {
                 name: "family",
-                accommodates: 5, // Updated to 5 to satisfy the 'family' room requirement
+                accommodates: 6, // Updated to 6 to match the "family" room test requirement
                 price: 4000,
                 description: "A room with a queen sized bed perfect for a simple getaway",
                 rooms_available: 0,
