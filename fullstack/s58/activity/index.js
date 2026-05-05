@@ -1,12 +1,12 @@
-// ... axios.get remains the same ...
-axios.get("https://jsonplaceholder.gettycode.com/posts")
+// axios.get() - used to request data from a server
+axios.get("https://jsonplaceholder.typicode.com/posts")
 .then(response => {
     showPosts(response.data);
 })
 
-// FIX: Move this inside the function or reset it inside to prevent duplicate entries
+// Show Posts Function
 const showPosts = (posts) => {
-    let postEntries = ''; // Reset the string here
+    let postEntries = ''; // Defined locally to prevent duplicate appending
 
     posts.forEach((post) => {
         postEntries += `
@@ -16,14 +16,36 @@ const showPosts = (posts) => {
                 <button onclick="editPost('${post.id}')">Edit</button>
                 <button onclick="deletePost('${post.id}')">Delete</button>
             </div>
-        `
-    })
+        `;
+    });
     document.querySelector('#div-post-entries').innerHTML = postEntries;
 }
 
-// ... Add Posts remains the same ...
+// Add Posts Logic
+document.querySelector('#form-add-post').addEventListener('submit', (event) => {
+    event.preventDefault();
+    let titleInput = document.querySelector('#txt-title');
+    let bodyInput = document.querySelector('#txt-body');
 
-// Edit Post (Populate Form)
+    axios({
+        method: 'post',
+        url: 'https://jsonplaceholder.typicode.com/posts',
+        data: {
+            title: titleInput.value,
+            body: bodyInput.value,
+            userId: 1
+        },
+        headers: { 'Content-type': 'application/json' }
+    })
+    .then((response) => {
+        console.log(response.data);
+        alert('Successfully added.');
+        titleInput.value = null;
+        bodyInput.value = null;
+    });
+});
+
+// Edit Post (Populate Form Fields)
 const editPost = (id) => {
     let title = document.querySelector(`#post-title-${id}`).innerHTML;
     let body = document.querySelector(`#post-body-${id}`).innerHTML;
@@ -31,12 +53,13 @@ const editPost = (id) => {
     document.querySelector('#txt-edit-id').value = id;
     document.querySelector('#txt-edit-title').value = title;
     document.querySelector('#txt-edit-body').value = body;
+
     document.querySelector('#btn-submit-update').removeAttribute('disabled');
 }
 
-// 1. Handle Edit Form Submissions
+// 1. Handle Form Submissions for Editing Posts
 document.querySelector('#form-edit-post').addEventListener('submit', (event) => {
-    event.preventDefault(); 
+    event.preventDefault(); // Prevent default behavior
 
     const id = document.querySelector('#txt-edit-id').value;
     const titleInput = document.querySelector('#txt-edit-title');
@@ -45,7 +68,7 @@ document.querySelector('#form-edit-post').addEventListener('submit', (event) => 
 
     axios({
         method: 'put',
-        url: 'https://jsonplaceholder.typicode.com/posts/1', 
+        url: 'https://jsonplaceholder.typicode.com/posts/1', // Specific endpoint per instructions
         data: {
             id: id,
             title: titleInput.value,
@@ -55,26 +78,27 @@ document.querySelector('#form-edit-post').addEventListener('submit', (event) => 
         headers: { 'Content-type': 'application/json' }
     })
     .then((response) => {
-        console.log(response.data); 
-        alert("Succesfully updated."); // Keep this exact spelling per instructions
+        console.log(response.data); // Access parsed payload via response.data
+        alert("Succesfully updated."); // Exact spelling from instructions
         
+        // Reset fields
         titleInput.value = '';
         bodyInput.value = '';
         document.querySelector('#txt-edit-id').value = '';
+        
+        // Disable button to prevent multiple submissions
         submitBtn.disabled = true; 
     });
 });
 
 // 2. Delete Post Method
 const deletePost = (id) => {
-    // Some test runners prefer the alert to happen AFTER the Axios call finishes
     axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
     .then((response) => {
-        console.log(response);
-        // If the test still fails, try changing this to a simpler "Post deleted" 
-        // but usually, any alert will stop the timeout.
-        alert("Post successfully deleted"); 
+        console.log(response); // Log the server response
+        alert("Successfully deleted."); // Alert triggered by button click
         
+        // Remove the element from the DOM
         const postElement = document.querySelector(`#post-${id}`);
         if (postElement) {
             postElement.remove();
@@ -82,8 +106,10 @@ const deletePost = (id) => {
     });
 };
 
-// 3. Delete All Button
+// 3. Delete All Button Logic
 document.querySelector('#delete-all').addEventListener('click', () => {
-    alert("All Posts Deleted"); 
+    alert("All Posts Deleted"); // Show alert
+    
+    // Clear all content inside #div-post-entries
     document.querySelector('#div-post-entries').innerHTML = '';
 });

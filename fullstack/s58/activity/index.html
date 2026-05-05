@@ -12,7 +12,8 @@
         <span>Title</span><br>
         <input type="text" id="txt-title"/><br>
         <span>Body</span><br>
-        <textarea type="text" id="txt-body"></textarea><br>
+        <!-- Removed type="text" from textarea -->
+        <textarea id="txt-body"></textarea><br>
         <button type="submit">Create</button>
     </form>
     <hr>
@@ -23,8 +24,11 @@
         <span>Title</span><br>
         <input type="text" id="txt-edit-title"/><br>
         <span>Body</span><br>
-        <textarea type="text" id="txt-edit-body"></textarea><br>
-        <button type="submit" id="btn-submit-update" disabled>Update</button>
+        <!-- Removed type="text" from textarea -->
+        <textarea id="txt-edit-body"></textarea><br>
+        
+        <!-- CRITICAL CHANGE: Removed "disabled" so the button can be clicked -->
+        <button type="submit" id="btn-submit-update">Update</button>
     </form>
 
     <h1>Posts</h1>
