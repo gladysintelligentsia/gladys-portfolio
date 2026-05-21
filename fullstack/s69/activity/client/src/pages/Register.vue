@@ -5,46 +5,44 @@
     import { useGlobalStore } from '../stores/global.js';
     import api from '../api.js';
 
+    // 1. Corrected state definitions
     const email = ref("");
     const password = ref("");
-    const confirmPass = refs("");
+    const confirmPass = ref(""); // Fixed: changed 'refs' to 'ref'
     const isEnabled = ref(false);
 
     const notyf = new Notyf();
-
-    const router = useRouter()
-
+    const router = useRouter();
     const { user } = useGlobalStore();
 
-    watch([ref.email,ref.password,ref.confirmPass], (currentValue, oldValue) => {
+    // 2. Fixed watch array to reference the actual ref variables
+    watch([email, password, confirmPass], (currentValue) => {
         if(currentValue.every(input => input !== "") && currentValue[1] === currentValue[2]){
-            isEnabled.value = true
+            isEnabled.value = true;
         } else {
-            isEnabled.value = false
+            isEnabled.value = false;
         }
     });
 
     async function handleSubmit(){
         try {
+            // 3. Changed 'ref.variable' syntax to '.value' syntax
             let response = await api.post('/users/register', {
-                email: ref.email,
-                password: ref.password
-            })
+                email: email.value,
+                password: password.value
+            });
 
             if(response.status === 201) {
-
                 notyf.success(response.data.message);
 
-                ref.email.value = "";
-                ref.password.value = "";
-                ref.confirmPass.value = "";
+                email.value = "";
+                password.value = "";
+                confirmPass.value = "";
 
-                router.push({path: '/login'})
-
+                router.push({path: '/login'});
             } else {
                 notyf.error("Registration Failed. Please contact administrator.");
             }
-
         } catch (e) {
             console.error(e);
             notyf.error("Registration Failed. Please contact administrator.");
@@ -52,10 +50,11 @@
     }
 
     onBeforeMount(() => {
-        if(user.token){
-            router.push({path: '/'})
+        // Safe check using optional chaining if user store structure differs
+        if(user && user.token){
+            router.push({path: '/'});
         }
-    })
+    });
 </script>
 
 <template>
@@ -80,8 +79,7 @@
                 id="registerPassword" 
                 class="form-control" 
                 placeholder="Enter Password" 
-                v-model="pass"
-            />
+                v-model="password" />
         </div>
 
         <div class="mb-3">
@@ -91,12 +89,10 @@
                 id="registerConfirmPassword" 
                 class="form-control" 
                 placeholder="Confirm Password"
-                v-model="confirmPassword"
-            />
+                v-model="confirmPass" />
         </div>
 
         <button type="submit" class="btn btn-primary btn-block" v-if="isEnabled">Submit</button>
-	    <button type="submit" class="btn btn-danger btn-block" disabled v-else>Submit</button>
+        <button type="submit" class="btn btn-danger btn-block" disabled v-else>Submit</button>
     </form>
-
 </template>
