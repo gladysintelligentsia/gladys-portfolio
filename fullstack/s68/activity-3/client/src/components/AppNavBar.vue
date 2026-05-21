@@ -1,7 +1,10 @@
 <script setup>
+    import { storeToRefs } from "pinia";
     import { useGlobalStore } from "../stores/global";
 
-    const { user } = useGlobalStore();
+    const store = useGlobalStore();
+    // Using storeToRefs preserves reactivity so login changes update the navbar instantly
+    const { user } = storeToRefs(store);
 </script>
 
 <template>
@@ -15,10 +18,10 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
-                    <router-link :to="{ name: 'Home' }" class="nav-link">Home<router-link>
+                    <router-link :to="{ name: 'Home' }" class="nav-link">Home</router-link>
 
-                    <router-link :to="{ name: 'Login' }" class="nav-link" v-if="!user.email">Login</router-link>
-                    <router-link :to="{ name: 'Registers' }" class="nav-link" v-if="user.email">Register</router-link>
+                    <router-link :to="{ name: 'Login' }" class="nav-link" v-if="!user?.email">Login</router-link>
+                    <router-link :to="{ name: 'Registers' }" class="nav-link" v-if="!user?.email">Register</router-link>
 
                     <router-link :to="{ name: 'Logout' }" class="nav-link" v-else>Logout</router-link>
                 </ul>
