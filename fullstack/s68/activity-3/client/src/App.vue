@@ -1,17 +1,25 @@
 <script>
   import { onBeforeMount } from 'vue';
   import { useGlobalStore } from "./stores/global";
-  import NavbarComponent from "./components/AppNavBar.vue"; 
+  // Double-check your exact filename casing (AppNavbar.vue vs AppNavBar.vue)
+  import NavbarComponent from "./components/AppNavbar.vue"; 
 
   export default {
     components: {
       NavbarComponent
     },
     setup(){
-
       const { getUserDetails } = useGlobalStore();
 
-      onBeforeMount(()=>getUserDetails(localStorage.getItem("token")))
+      onBeforeMount(() => {
+        const token = localStorage.getItem("token");
+        
+        // FIXED: Only fetch details if a token actually exists!
+        // This prevents the automatic 401 Unauthorized console error on load.
+        if (token && token !== "undefined" && token !== "null") {
+          getUserDetails(token);
+        }
+      });
     }
   }
 </script>

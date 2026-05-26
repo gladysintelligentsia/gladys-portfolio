@@ -9,7 +9,8 @@ import Login from './pages/Login';
 
 import './App.css';
 
-import {  } from './UserContext';
+// FIXED: Imported UserProvider so the wrapper context works perfectly
+import { UserProvider } from './UserContext';
 
 function App() {
 
@@ -18,7 +19,8 @@ function App() {
       isAdmin: null
     });
 
-    useE(() => {
+    // FIXED: Changed useE to useEffect so the React lifestyle hook mounts correctly
+    useEffect(() => {
 
       fetch(`http://localhost:4000/users/details`, {
         headers: {
@@ -50,12 +52,12 @@ function App() {
       }, []);
 
     const unsetUser = () => {
-
       localStorage.clear();
-
+      setUser({
+        id: null,
+        isAdmin: null
+      });
     };
-
-
 
   return (
     <UserProvider value={{user, setUser, unsetUser}}>
@@ -66,7 +68,6 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
-{/*             <Route path="/logout" element={<Logout />} /> */}
           </Routes>
         </Container>
       </Router>
