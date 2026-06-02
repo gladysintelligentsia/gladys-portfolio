@@ -1,153 +1,162 @@
 <script setup>
-import { Notyf } from 'notyf';
-import { ref, onMounted, onBeforeUnmount } from 'vue';
 
-const notyf = new Notyf();
+	import {Notyf} from 'notyf';
+	import {ref, onMounted, onBeforeUnmount} from 'vue';
 
-const name = ref("");
-const email = ref("");
-const message = ref("");
-const isLoading = ref(false);
+	const notyf = new Notyf();
 
-// Web3Forms Access Key used to authenticate form submissions.
-const WEB3FORMS_ACCESS_KEY = "91c0b0e7-58c2-48d8-a99c-f04255e380e5"; 
+	const name = ref("");
+	const email = ref("");
+	const message = ref("");
+	const isLoading = ref(false);
 
-// Email subject that will appear when a form submission is received.
-const subject = "New message from Portfolio Contact Form";
+	// 1. YOUR WEB3FORMS ACCESS KEY
+	const WEB3FORMS_ACCESS_KEY = "91c0b0e7-58c2-48d8-a99c-f04255e380e5"; 
 
-// Google reCAPTCHA v2 Site Key
-const SITE_KEY = '6LcySgctAAAAAG39ijQWxZ3P9AqcGre6tWT3EC71';  
-const recaptchaContainer = ref(null);
-const recaptchaWidgetId = ref(null);
-const recaptchaToken = ref('');
+	// Email subject that will appear when a form submission is received.
+	const subject = "New message from Gladys Ramos Portfolio";
 
-// The submitForm() function handles the contact form submission.
-const submitForm = async () => {
+	// The submitForm() function handles the contact form submission.
+	const submitForm = async () => {
 
-	// Ensure the user completes the reCAPTCHA challenge before submitting
-	if (!recaptchaToken.value) {
-		notyf.error('Please verify that you are not a robot');
-		return;
-	}
-
-	// While the email is being sent, disable the button and change its text to "Sending..."
-	isLoading.value = true;
-
-	try {
-		// fetch() API sends HTTP requests to Web3Forms server.
-		const response = await fetch("https://api.web3forms.com/submit", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-				Accept: "application/json"
-			},
-			body: JSON.stringify({
-				access_key: WEB3FORMS_ACCESS_KEY,
-				subject: subject,
-				name: name.value,
-				email: email.value,
-				message: message.value,
-				"recaptcha_response": recaptchaToken.value // Sends the token to Web3Forms to verify
-			})
-		});
-
-		const result = await response.json();
-
-		if (result.success) {
-			console.log(result);
-			notyf.success("Message Sent!");
-			// Clear the inputs
-			name.value = "";
-			email.value = "";
-			message.value = "";
-		} else {
-			notyf.error("Failed to verify or send message.");
+		// Ensure the user completes the reCAPTCHA challenge before submitting the form.
+		if(!recaptchaToken.value) {
+			notyf.error('Please verify that you are not a robot');
+			return;
 		}
-	} catch (error) {
-		console.log(error);
-		notyf.error("Failed to send message.");
-	} finally {
-		isLoading.value = false;
-		resetRecaptcha();
+
+		// While the email is being sent, disable the button and change text to "Sending..."
+		isLoading.value = true;
+
+		try {
+			// Send HTTP request to Web3Forms API
+			const response = await fetch("https://api.web3forms.com/submit", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					Accept: "application/json"
+				},
+				// Included recaptcha_response for Free Tier authentication
+				body: JSON.stringify({
+					access_key: WEB3FORMS_ACCESS_KEY,
+					subject: subject,
+					name: name.value,
+					email: email.value,
+					message: message.value,
+					recaptcha_response: recaptchaToken.value 
+				})
+			})
+
+			const result = await response.json();
+
+			if (result.success) {
+				console.log(result);
+				isLoading.value = false;
+				notyf.success("Message Sent!");
+				
+				// Clear form inputs on success
+				name.value = "";
+				email.value = "";
+				message.value = "";
+			} else {
+				isLoading.value = false;
+				notyf.error(result.message || "Failed to send message.");
+			}
+		} catch (error) {
+			console.log(error);
+			isLoading.value = false;
+			notyf.error("Failed to send message.");
+		} finally {
+			resetRecaptcha();
+		}
 	}
-};
 
-/* reCAPTCHA Integration helper blocks */
-function onRecaptchaSuccess(token) {
-	recaptchaToken.value = token;
-}
+	/* reCAPTCHA Integration */
 
-function onRecaptchaExpired() {
-	recaptchaToken.value = '';
-}
+	// 2. YOUR GOOGLE RECAPTCHA V2 SITE KEY
+	const SITE_KEY = '6LcySgctAAAAAG39ijQWxZ3P9AqcGre6tWT3EC71';  
 
-function renderRecaptcha() {
-	if (!window.grecaptcha || !SITE_KEY) return;
+	const recaptchaContainer = ref(null);
+	const recaptchaWidgetId = ref(null);
+	const recaptchaToken = ref('');
 
-	recaptchaWidgetId.value = window.grecaptcha.render(recaptchaContainer.value, {
-		sitekey: SITE_KEY,
-		size: 'normal',
-		callback: onRecaptchaSuccess,
-		'expired-callback': onRecaptchaExpired,
-	});
-}
+	function onRecaptchaSuccess(token) {
+		recaptchaToken.value = token;
+	}
 
-function resetRecaptcha() {
-	if (recaptchaWidgetId.value !== null && window.grecaptcha) {
-		window.grecaptcha.reset(recaptchaWidgetId.value);
+	function onRecaptchaExpired() {
 		recaptchaToken.value = '';
 	}
-}
 
-onMounted(() => {
-	const interval = setInterval(() => {
-		if (window.grecaptcha && window.grecaptcha.render) {
-			renderRecaptcha();
-			clearInterval(interval);
+	function renderRecaptcha() {
+		if (!window.grecaptcha) {
+			console.error('reCAPTCHA not loaded');
+			return;
 		}
-	}, 100);
 
-	onBeforeUnmount(() => {
-		clearInterval(interval);
-	});
-}); 
+		recaptchaWidgetId.value = window.grecaptcha.render(recaptchaContainer.value, {
+			sitekey: SITE_KEY,
+			size: 'normal',
+			callback: onRecaptchaSuccess,
+			'expired-callback': onRecaptchaExpired,
+		});
+	}
+
+	function resetRecaptcha() {
+		if (recaptchaWidgetId.value !== null) {
+			window.grecaptcha.reset(recaptchaWidgetId.value);
+			recaptchaToken.value = '';
+		}
+	}
+
+	onMounted(() => {
+		const interval = setInterval(() => {
+			if (window.grecaptcha && window.grecaptcha.render) {
+				renderRecaptcha();
+				clearInterval(interval);
+			}
+		}, 100);
+
+		onBeforeUnmount(() => {
+			clearInterval(interval);
+		});
+	});  
+	
 </script>
 
 <template>
 	<h1 class="text-center my-4 pt-5" id="contact">Contact</h1>
 	<div class="contact-section container">
 		<div class="row align-items-center mt-4">
-			<div class="col-md-6 map-container mb-4 mb-md-0">
-				<iframe id="gmap_canvas" src="https://maps.google.com/maps?q=Manila&t=&z=13&ie=UTF-8&iwloc=&output=embed" width="100%" height="400" frameborder="0" scrolling="no"></iframe>
+			<div class="col-md-6 mb-4 mb-md-0 text-center">
+				<div class="p-5 bg-light rounded shadow-sm">
+					<h4>Let's Build Something Together!</h4>
+					<p class="text-muted">Drop me a line or connect with me via my professional networks below.</p>
+				</div>
 			</div>
-			
 			<div class="col-md-6">
-				<form @submit.prevent="submitForm" class="p-4 shadow-sm rounded bg-white">
+				<form @submit.prevent="submitForm">
 					<div class="mb-3">
-						<label for="user-fullname" class="form-label d-none">Full Name</label>
-						<input type="text" id="user-fullname" v-model="name" class="form-control contact-form-control" placeholder="First Name M.I. Last Name" required>
+						<input type="text" v-model="name" class="form-control" placeholder="Full Name" required>
 					</div>
 					<div class="mb-3">
-						<label for="user-email" class="form-label d-none">Email Address</label>
-						<input type="email" id="user-email" v-model="email" class="form-control contact-form-control" placeholder="Email" required>
+						<input type="email" v-model="email" class="form-control" placeholder="Email Address" required>
 					</div>
 					<div class="mb-3">
-						<label for="user-message" class="form-label d-none">Message</label>
-						<textarea id="user-message" class="form-control contact-form-control" v-model="message" rows="6" placeholder="Message" required></textarea>
+						<textarea class="form-control" v-model="message" rows="6" placeholder="Your Message" required></textarea>
 					</div>
-					
-					<div class="d-flex justify-content-start mb-3">
-						<div ref="recaptchaContainer"></div>
+					<div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+						<div class="social-icons d-flex gap-3 fs-4">
+							<a href="https://www.linkedin.com/in/gladys-ramos" class="text-dark" target="_blank"><i class="fab fa-linkedin"></i></a>
+							<a href="https://github.com/gladysintelligentsia" class="text-dark" target="_blank"><i class="fab fa-github"></i></a>
+						</div>
+						<button type="submit" class="btn btn-dark px-4" :disabled="isLoading">
+							{{isLoading ? "Sending..." : "Send Inquiry"}}
+						</button>
 					</div>
 
-					<div class="form-footer d-flex justify-content-between align-items-center flex-wrap gap-2">
-						<div class="social-icons d-flex gap-3 fs-4">
-							<a href="https://www.linkedin.com/" target="_blank" id="linkedin" class="text-secondary"><i class="fab fa-linkedin"></i></a>
-							<a href="https://github.com/gladysintelligentsia" target="_blank" id="github" class="text-secondary"><i class="fab fa-github"></i></a>
-						</div>
-						<button type="submit" class="btn btn-primary px-5 py-2 submit-btn" :disabled="isLoading">
-							{{ isLoading ? "Sending..." : "Submit" }}
-						</button>
+					<div class="d-flex justify-content-start mt-3">
+						<div ref="recaptchaContainer"></div>
 					</div>
 				</form>
 			</div>
@@ -156,12 +165,5 @@ onMounted(() => {
 	</template>
 
 <style scoped>
-.contact-form-control {
-	padding: 12px;
-	border-radius: 6px;
-}
-.submit-btn {
-	border-radius: 6px;
-	font-weight: 500;
-}
+	/* Clean layout formatting */
 </style>
