@@ -1,7 +1,6 @@
 <script setup>
-
-	import {Notyf} from 'notyf';
-	import {ref, onMounted, onBeforeUnmount} from 'vue';
+	import { Notyf } from 'notyf';
+	import { ref, onMounted, onBeforeUnmount } from 'vue';
 
 	const notyf = new Notyf();
 
@@ -20,7 +19,7 @@
 	const submitForm = async () => {
 
 		// Ensure the user completes the reCAPTCHA challenge before submitting the form.
-		if(!recaptchaToken.value) {
+		if (!recaptchaToken.value) {
 			notyf.error('Please verify that you are not a robot');
 			return;
 		}
@@ -34,18 +33,17 @@
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
-					Accept: "application/json"
+					"Accept": "application/json"
 				},
-				// Free Tier verification integration parameter
 				body: JSON.stringify({
 					access_key: WEB3FORMS_ACCESS_KEY,
 					subject: subject,
 					name: name.value,
 					email: email.value,
 					message: message.value,
-					recaptcha_response: recaptchaToken.value 
+					"g-recaptcha-response": recaptchaToken.value
 				})
-			})
+			});
 
 			const result = await response.json();
 
@@ -147,22 +145,3 @@
 					</div>
 					<div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
 						<div class="social-icons d-flex gap-3 fs-4">
-							<a href="https://www.linkedin.com/in/gladys-ramos" class="text-dark" target="_blank"><i class="fab fa-linkedin"></i></a>
-							<a href="https://github.com/gladysintelligentsia" class="text-dark" target="_blank"><i class="fab fa-github"></i></a>
-						</div>
-						<button type="submit" class="btn btn-dark px-4" :disabled="isLoading">
-							{{isLoading ? "Sending..." : "Send Inquiry"}}
-						</button>
-					</div>
-
-					<div class="d-flex justify-content-start mt-3">
-						<div ref="recaptchaContainer"></div>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	</template>
-
-<style scoped>
-</style>

@@ -1,20 +1,25 @@
 <script setup>
 import Navbar from './components/Navbar.vue';
-import About from './components/About.vue';
+import Banner from './components/Banner.vue';
 import Projects from './components/Projects.vue';
-import Tools from './components/Tools.vue';
 import Contact from './components/Contact.vue';
 import FooterComponent from './components/FooterComponent.vue';
 </script>
 
 <template>
-  <Navbar />
-  <About />
-  <Projects />
-  <Tools />
-  <Contact />
-  <FooterComponent />
+  <div>
+    <Navbar />
+    <Banner />
+    <Projects />
+    <Contact />
+    <FooterComponent />
+  </div>
 </template>
 
-<style scoped>
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #ffffff;
+}
 </style>
