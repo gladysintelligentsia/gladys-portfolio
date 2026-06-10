@@ -75,8 +75,8 @@
 
 	/* hCaptcha Integration Settings */
 
-	// 2. Put your hCaptcha SITE KEY here (from your hCaptcha dashboard)
-	const HCAPTCHA_SITE_KEY = 'YOUR_HCAPTCHA_SITE_KEY_HERE';   
+	// 2. Your live hCaptcha SITE KEY updated below
+	const HCAPTCHA_SITE_KEY = '31d69326-27e2-4868-a4f2-7e58622a9b8c';   
 
 	const hcaptchaContainer = ref(null);
 	const hcaptchaWidgetId = ref(null);
