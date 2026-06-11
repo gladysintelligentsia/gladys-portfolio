@@ -16,6 +16,11 @@ app.use(cors());
 app.use("/users", userRoutes);
 app.use("/workouts", workoutRoutes);
 
+// Add this health-check route
+app.get('/', (req, res) => {
+    res.send('Fitness API is online and working!');
+});
+
 if (require.main === module) {
     mongoose.connect(process.env.MONGODB_STRING);
     mongoose.connection.once('open', () => console.log('Now connected to MongoDB Atlas.'));
