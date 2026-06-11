@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
 
+// Ensure these match your file names exactly
+const auth = require("./auth"); 
 const workoutRoutes = require("./routes/workout");
 const userRoutes = require("./routes/user");
 
