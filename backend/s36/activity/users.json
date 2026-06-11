@@ -1,0 +1,20 @@
+[
+  {
+    "_id": "65f1a2b3c4d5e6f7a8b9c001",
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "email": "jane.doe@mail.com",
+    "password": "hashedpassword123",
+    "isAdmin": false,
+    "mobileNumber": "09123456789"
+  },
+  {
+    "_id": "65f1a2b3c4d5e6f7a8b9c002",
+    "firstName": "Admin",
+    "lastName": "User",
+    "email": "admin@mail.com",
+    "password": "adminpassword",
+    "isAdmin": true,
+    "mobileNumber": "09987654321"
+  }
+]

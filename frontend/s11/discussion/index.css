@@ -1,0 +1,128 @@
+/*
+A CSS rule consists of:
+- Selector → selects the HTML element.
+- Property → the style you want to change.
+- Value → the setting applied to the property.
+
+CSS Rules
+selector {
+    property: value;
+}
+*/
+
+/*Type Selector*/
+/*Selects elements by tag name*/
+
+h1 {
+    /*!important - gives this higher priority. Forces the text to stay blue, even if other styles try to change.*/
+    color: blue !important;
+    text-align: center;
+    font-size: 32px;
+}
+
+/*Universal Selector*/
+/*Selects all elements by using (*)*/
+
+* {
+    /*Sets the type of font used for the text.*/
+    /*"Courier New" is the main font, and monospace is the backup if the first one is not available.*/
+    font-family: "Courier New", monospace;
+    /*Sets the size of the text.*/
+    font-size: 20px;
+}
+
+/*It will not work because the spacing was already changed using its id #zuitt-motto. It will only work to other h3 elements.*/
+h3 {
+    letter-spacing: 25px;
+}
+
+/*ID Selector*/
+/*Selects an element using # followed by the id name*/
+
+#zuitt-motto {
+    /*Controls the space between letters.*/
+    letter-spacing: 5px;
+}
+
+/*Class Selector*/
+/*Select elements using . followed by the class name*/
+
+.offering-item {
+    /*Changes the casing of text*/
+    text-transform: uppercase;
+}
+
+/*Other h3 elements will use 3px letter spacing because the class selector has higher priority than the type selector.*/
+.modules {
+    letter-spacing: 3px;
+}
+
+/*CSS Combinators*/
+/*CSS combinators connect two selectors and show how elements are related.*/
+
+/*Adjacent Sibling Selector (+)*/
+/*selector + selector*/
+/*Styles the second element only if it comes immediately after the first element inside the same parent.*/
+
+h3 + img {
+    height: 300px;
+    width: 300px;
+    border-radius: 150px;
+}
+
+/*General Sibling Selector*/
+/*selector ~ selector*/
+/*Styles the second element if it comes after the first element inside the same parent (not necessarily immediately).*/
+
+h2 ~ a, a {
+    /*Removes the underline from text (usually from links)*/
+    text-decoration: none;
+}
+
+/*Descendant Selector*/
+/*selector selector*/
+/*Styles elements that are inside one parent element, at any level.*/
+
+#program-learning-list li {
+    color: #075966;
+}
+
+/* Child Selector */
+/* selector > selector */
+/* Styles elements that are direct children of one parent element. */
+
+nav > a {
+    font-weight: bold;
+}
+
+/*More CSS Rules*/
+
+body {
+    background-color: skyblue;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+nav {
+    background-color: white;
+}
+
+div {
+    float: right;
+}
+
+section {
+    height: 100vh;
+    text-align: center;
+}
+
+ol {
+    list-style-type: none;
+    padding: 0;
+}
+
+h2 {
+    font-size: 25px;
+}

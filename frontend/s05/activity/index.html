@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zuitt IT Solutions Activity</title>
+</head>
+<body>
+
+    <header>
+        <h1>Zuitt IT Solutions</h1>
+    </header>
+
+    <section>
+        <h2>Products Offered</h2>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Package</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Basic</td>
+                    <td>₱ 500.00</td>
+                    <td>Package includes a fully functional website with desired specifications.</td>
+                </tr>
+                <tr>
+                    <td>Premium</td>
+                    <td>₱ 1000.00</td>
+                    <td>Enjoy all the benefits of the basic package and also includes site support and maintainance.</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" align="center">
+                        <strong>Additional features after initial project is inclusive of charges</strong>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </section>
+<section>
+    <h2>Contact Form</h2>
+    <form>
+        <label for="first_name">First Name:</label><br>
+        <input type="text" id="first_name" name="first_name" autocomplete="on" required><br>
+
+        <label for="last_name">Last Name:</label><br>
+        <input type="text" id="last_name" name="last_name" autocomplete="on" required><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" autocomplete="on" required><br>
+
+        <label for="contact">Contact Number:</label><br>
+        <input type="number" id="contact" name="contact" autocomplete="on" required><br>
+
+        <label for="service_type">Service Type:</label><br>
+        <select id="service_type" name="service_type" required>
+            <option value="frontend">Front End Programming</option>
+            <option value="backend">Back End Programming</option>
+            <option value="fullstack">Full Stack Development</option>
+        </select><br>
+
+        <label>Preferred Contact:</label><br>
+        <input type="checkbox" id="contact-email" name="preferred-contact" value="email">
+        <label for="contact-email">Email</label><br>
+        <input type="checkbox" id="contact-phone" name="preferred-contact" value="phone">
+        <label for="contact-phone">Phone</label><br>
+
+        <label>Package:</label><br>
+        <input type="radio" id="basic" name="package" value="basic">
+        <label for="basic">Basic</label><br>
+        <input type="radio" id="premium" name="package" value="premium">
+        <label for="premium">Premium</label><br>
+
+        <br>
+        <label for="message">Message</label><br>
+        <textarea id="message" name="message" rows="5" cols="30" required></textarea><br>
+
+        <button type="submit">Send Inquiry</button><br>
+        <button type="reset">Reset</button>
+    </form>
+</section>
+</body>
+</html>
+

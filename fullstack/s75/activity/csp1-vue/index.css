@@ -1,0 +1,38 @@
+/* style.css improvements */
+
+/* Ensure images in cards are uniform in size */
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    background-color: #eee; /* Fallback if image path is wrong */
+}
+
+/* Add spacing between cards and text without using <br> */
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+/* Hover effect for a professional touch */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* Tool section spacing */
+#tools .border {
+    transition: background-color 0.3s;
+}
+
+#tools .border:hover {
+    background-color: #343a40;
+    color: white;
+}
