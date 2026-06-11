@@ -1,0 +1,9 @@
+[
+  {
+    "_id": "65f1a2b3c4d5e6f7a8b9c005",
+    "userId": "65f1a2b3c4d5e6f7a8b9c001",
+    "datetimeCreated": "2026-03-26T12:00:00Z",
+    "isPaid": true,
+    "total": 78500
+  }
+]

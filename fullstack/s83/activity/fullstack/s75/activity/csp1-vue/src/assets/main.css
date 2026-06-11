@@ -1,0 +1,141 @@
+#menu {
+
+  /* UI Properties */
+  background: #003E86 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+#hm, #prjcts, #tls, #cntct {
+  /* Layout Properties */
+  margin-left: 50px;
+  /* UI Properties */
+  text-align: center;
+  font: normal normal 500 20px Montserrat;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  opacity: 1;
+}
+#landing {
+  /* UI Properties */
+  background: #CBDCF2 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+.landing-text {
+  color: #003E86;
+  opacity: 1;
+}
+
+.card {
+  /* Layout Properties */
+
+  /* UI Properties */
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: -1px 3px 6px #00000029;
+  border-radius: 15px;
+  opacity: 1;
+}
+.card-title {
+  /* UI Properties */
+  text-align: left;
+  font: normal normal 600 20px Montserrat;
+  letter-spacing: 0px;
+  color: #003E86;
+}
+
+.card-text {
+  /* UI Properties */
+  text-align: left;
+  font: normal normal medium 14px Montserrat;
+  letter-spacing: 0px;
+  color: #003E86;
+}
+
+.card-img {
+  padding-top: 25px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 0px;
+  opacity: 1;
+}
+
+.tools-img {
+  padding: 15px;
+}
+
+.contact-section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 50px 20px;
+}
+.contact-form-control {
+  background-color: transparent;
+  border: 1px solid #003C82;
+  color: #003C82;
+  padding: 12px;
+  font-size: 16px;
+}
+.contact-form-control::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+.submit-btn {
+  background-color: #3A86FF;
+  color: white;
+  border-radius: 30px;
+  padding: 12px 30px;
+  border: none;
+  font-size: 16px;
+}
+.social-icons a {
+  font-size: 28px;
+  margin-right: 15px;
+  color: #0C2D57;
+}
+.map-container iframe {
+  width: 100%;
+  height: 350px;
+  border-radius: 10px;
+  padding-right: 50px;
+}
+
+.form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-footer .submit-btn {
+  margin-left: auto;
+}
+
+.fab {
+  font-size: 2rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins",sans-serif; 
+  background: #F0F7FF 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+h1,h2,h3,h4, .nav-link,.card-title {
+  font-family: "Montserrat", serif;
+  color: #003E86;
+  opacity: 1;
+}
+
+h1 {
+  /* UI Properties */
+  font: normal normal 750 45px/30px Montserrat;
+  color: #003E86;
+}
+
+
+footer {
+  background: #003E86 0% 0% no-repeat padding-box;
+  opacity: 1;
+}

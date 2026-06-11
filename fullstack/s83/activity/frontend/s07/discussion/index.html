@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Explainer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+        }
+        .container {
+            max-width: 800px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        h2 { color: #2980b9; margin-top: 30px; }
+        
+        /* Step Section */
+        .steps { margin-bottom: 40px; }
+        .step-item { margin-bottom: 15px; }
+        .step-number { font-weight: bold; color: #3498db; }
+
+        /* Diagram Styling */
+        .diagram-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .box {
+            background: #34495e;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            min-width: 100px;
+        }
+        .arrow { font-size: 24px; color: #7f8c8d; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>How Electric Vehicles Work</h1>
+    
+    <div class="steps">
+        <h2>3 Steps to Zero Emissions</h2>
+        <div class="step-item">
+            <span class="step-number">1. Energy Storage:</span> 
+            Electricity is stored in a large lithium-ion battery pack, usually located at the base of the car.
+        </div>
+        <div class="step-item">
+            <span class="step-number">2. Power Conversion:</span> 
+            When you press the accelerator, the controller gathers energy from the battery and sends it to the electric motor.
+        </div>
+        <div class="step-item">
+            <span class="step-number">3. Propulsion:</span> 
+            The motor uses that electricity to create magnetic fields that rotate the motor, which turns the wheels via a simple transmission.
+        </div>
+    </div>
+
+    <h2>Power Flow Diagram</h2>
+    <div class="diagram-container">
+        <div class="box">Battery</div>
+        <div class="arrow">→</div>
+        <div class="box">Motor</div>
+        <div class="arrow">→</div>
+        <div class="box">Wheels</div>
+    </div>
+</div>
+
+</body>
+</html>

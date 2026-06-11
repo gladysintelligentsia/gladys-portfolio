@@ -1,0 +1,24 @@
+{
+  "_id": "507f1f77bcf86cd799439011",
+  "firstName": "Juan",
+  "lastName": "Dela Cruz",
+  "email": "JuanDC@mail.com",
+  "password": "Juanhandsome",
+  "isAdmin": false,
+  "mobileNumber": "09221231234",
+  "enrollments": ["601ccbe89bcd482ee8fa2c99", "507f191e810c19729de860ea"],
+  "dateTimeRegistered": "2026-03-26T18:00:00.00Z"
+}
+
+{
+  "_id": "507f1f77bcf86cd799439012",
+  "firstName": "Jane",
+  "lastName": "Doe",
+  "email": "jane@mail.com",
+  "password": "jane123",
+  "isAdmin": true,
+  "mobileNumber": "09277365582",
+  "enrollments": [],
+  "dateTimeRegistered": "2026-03-26T19:00:00.00Z"
+}
+

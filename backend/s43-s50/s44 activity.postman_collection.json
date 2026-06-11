@@ -1,0 +1,127 @@
+{
+  "info": {
+    "_postman_id": "0859581d-8dc4-4bb7-9e99-b7e3b7635237",
+    "name": "s44 activity",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53639394",
+    "_collection_link": "https://go.postman.co/collection/53639394-0859581d-8dc4-4bb7-9e99-b7e3b7635237?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "get details",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"id\": \"69dcdd69d6bc86cb6340febd\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:4000/users/details/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4000",
+          "path": [
+            "users",
+            "details",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "check email",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"herrah@mail.com\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:4000/users/check-email/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4000",
+          "path": [
+            "users",
+            "check-email",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get all courses",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"id\": \"69dcdd69d6bc86cb6340febd\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:4000/courses/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4000",
+          "path": [
+            "courses",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "add course",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Bootstrap All The Way\",\r\n    \"description\": \"Improve your webpage design! Learn Bootstrap\",\r\n    \"price\": 1800\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:4000/courses/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "4000",
+          "path": [
+            "courses",
+            ""
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

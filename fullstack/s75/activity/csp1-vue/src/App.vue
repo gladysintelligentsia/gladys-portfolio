@@ -1,6 +1,5 @@
 <script setup>
 import Navbar from './components/Navbar.vue';
-import Banner from './components/Banner.vue';
 import Projects from './components/Projects.vue';
 import Contact from './components/Contact.vue';
 import FooterComponent from './components/FooterComponent.vue';
@@ -9,7 +8,6 @@ import FooterComponent from './components/FooterComponent.vue';
 <template>
   <div>
     <Navbar />
-    <Banner />
     <Projects />
     <Contact />
     <FooterComponent />

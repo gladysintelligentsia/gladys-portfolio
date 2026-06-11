@@ -1,0 +1,17 @@
+/* Customizing the Hero Section */
+#hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('your-image.jpg');
+    background-size: cover;
+    padding: 100px 0 !important;
+}
+
+/* Enhancing Card Appearance */
+.card {
+    transition: transform 0.3s;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}

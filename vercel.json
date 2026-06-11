@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/fullstack/s75/activity/csp1-vue/$1"
+    }
+  ]
+}

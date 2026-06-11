@@ -9,15 +9,14 @@
 	const message = ref("");
 	const isLoading = ref(false);
 
-	// 1. Web3Forms Access Key
+	// Web3Forms Access Key
 	const WEB3FORMS_ACCESS_KEY = "91c0b0e7-58c2-48d8-a99c-f04255e380e5"; 
 
-	// Email subject that will appear when a form submission is received.
+	// Email subject
 	const subject = "New message from Gladys Ramos Portfolio";
 
 	// The submitForm() function handles the contact form submission.
 	const submitForm = async () => {
-		// While the email is being sent, disable the button and change text to "Sending..."
 		isLoading.value = true;
 
 		try {
@@ -33,14 +32,14 @@
 					subject: subject,
 					name: name.value,
 					email: email.value,
-					message: message.value
+					message: message.value,
+					// The honeypot field is handled automatically by Web3Forms
 				})
 			});
 
 			const result = await response.json();
 
 			if (result.success) {
-				console.log(result);
 				isLoading.value = false;
 				notyf.success("Message Sent!");
 				
@@ -61,7 +60,7 @@
 </script>
 
 <template>
-	<h1 class="text-center my-4 pt-5" id="contact">Contact</h1>
+	<h1 class="text-center my-4 pt-5" id="contact">Contact Gladys Ramos</h1>
 	<div class="contact-section container">
 		<div class="row align-items-center mt-4">
 			<div class="col-md-6 mb-4 mb-md-0 text-center">
@@ -72,19 +71,26 @@
 			</div>
 			<div class="col-md-6">
 				<form @submit.prevent="submitForm">
-					<div class="mb-3">
-						<input type="text" v-model="name" class="form-control" placeholder="Full Name" required>
-					</div>
-					<div class="mb-3">
-						<input type="email" v-model="email" class="form-control" placeholder="Email Address" required>
-					</div>
-					<div class="mb-3">
-						<textarea class="form-control" v-model="message" rows="6" placeholder="Your Message" required></textarea>
-					</div>
+					<!-- Honeypot Spam Protection -->
+					<input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
+					<div class="mb-3">
+						<input type="text" id="firstName" v-model="name" class="form-control" placeholder="Name" required>
+					</div>
+					<div class="mb-3">
+						<input type="email" id="email" v-model="email" class="form-control" placeholder="Email Address" required>
+					</div>
+					<div class="mb-3">
+						<textarea id="message" class="form-control" v-model="message" rows="6" placeholder="Your Message" required></textarea>
+					</div>
 					<div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
-						<button type="submit" class="btn btn-primary" :disabled="isLoading">
-							{{ isLoading ? 'Sending...' : 'Send Message' }}
+						<div class="social-icons d-flex gap-3 fs-4">
+							<a href="https://www.linkedin.com/in/gladysramos" target="_blank" id="linkedin"><i class="fab fa-linkedin"></i></a>
+							<a href="https://git.zuitt.co/gladysintelligentsia" target="_blank" id="gitlab"><i class="fab fa-gitlab"></i></a>
+							<a href="https://github.com/gladysintelligentsia" target="_blank" id="github"><i class="fab fa-github"></i></a>
+						</div>
+						<button type="submit" class="btn btn-primary px-4" :disabled="isLoading">
+							{{ isLoading ? "Sending..." : "Submit" }}
 						</button>
 					</div>
 				</form>
@@ -92,3 +98,13 @@
 		</div>
 	</div>
 </template>
+
+<style scoped>
+	.social-icons a {
+		color: #495057;
+		transition: color 0.2s ease-in-out;
+	}
+	.social-icons a:hover {
+		color: #0d6efd;
+	}
+</style>

@@ -1,0 +1,20 @@
+[
+  {
+    "_id": "65f1a2b3c4d5e6f7a8b9c003",
+    "name": "Laptop",
+    "description": "High-end gaming laptop",
+    "price": 75000,
+    "stocks": 10,
+    "isActive": true,
+    "sku": "LP-001"
+  },
+  {
+    "_id": "65f1a2b3c4d5e6f7a8b9c004",
+    "name": "Mechanical Keyboard",
+    "description": "RGB Backlit Blue Switches",
+    "price": 3500,
+    "stocks": 50,
+    "isActive": true,
+    "sku": "KB-002"
+  }
+]
