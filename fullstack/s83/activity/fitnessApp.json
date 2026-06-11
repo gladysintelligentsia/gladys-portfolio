@@ -1,1 +1,11 @@
-fitnessApp.json
+{
+  "endpoints": {
+    "login": "/login",
+    "register": "/register",
+    "addworkout": "/addworkout",
+    "getMyWorkouts": "/getMyWorkouts",
+    "updateworkout": "/updateworkout",
+    "deleteworkout": "/deleteworkout",
+    "completeWorkoutStatus": "/completeWorkoutStatus"
+  }
+}           
